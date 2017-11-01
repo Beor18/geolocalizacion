@@ -9,9 +9,11 @@ declare var google;
   templateUrl: 'home.html'
 })
 export class HomePage {
+
   map: any;
+
   constructor(
-    public navCtrl: NavController,
+    private navCtrl: NavController,
     private geolocation: Geolocation
   ) {}
 
@@ -19,46 +21,40 @@ export class HomePage {
     this.getPosition();
   }
 
-  getPosition(): void{
+  getPosition():any{
     this.geolocation.getCurrentPosition()
     .then(response => {
       this.loadMap(response);
     })
-    .catch(error => {
-      //console.log(error);
+    .catch(error =>{
+      console.log(error);
     })
   }
 
   loadMap(position: Geoposition){
-
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
-
-    let watch = this.geolocation.watchPosition();
-    watch.subscribe((data) => {
-      data.coords.latitude;
-      data.coords.longitude;
-    });
-
     console.log(latitude, longitude);
+    
+    // create a new map by passing HTMLElement
+    let mapEle: HTMLElement = document.getElementById('map');
 
-    let mapEle: HTMLElement = document.getElementById('id');
-
+    // create LatLng object
     let myLatLng = {lat: latitude, lng: longitude};
 
+    // create map
     this.map = new google.maps.Map(mapEle, {
       center: myLatLng,
       zoom: 12
     });
 
     google.maps.event.addListenerOnce(this.map, 'idle', () => {
-      new google.maps.Marker({
+      let marker = new google.maps.Marker({
         position: myLatLng,
         map: this.map,
-        title: 'Hola Gil'
+        title: 'Hello World!'
       });
       mapEle.classList.add('show-map');
     });
   }
-
 }

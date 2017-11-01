@@ -19,13 +19,13 @@ export class HomePage {
     this.getPosition();
   }
 
-  getPosition():any {
+  getPosition(): void{
     this.geolocation.getCurrentPosition()
     .then(response => {
       this.loadMap(response);
     })
     .catch(error => {
-      console.log(error);
+      //console.log(error);
     })
   }
 

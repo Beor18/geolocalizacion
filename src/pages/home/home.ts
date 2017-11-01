@@ -36,13 +36,13 @@ export class HomePage {
     let longitude = position.coords.longitude;
     console.log(latitude, longitude);
     
-    // create a new map by passing HTMLElement
+    // create un nuevo mapa pasando HTMLElement
     let mapEle: HTMLElement = document.getElementById('map');
 
-    // create LatLng object
+    // create objecto LatLng
     let myLatLng = {lat: latitude, lng: longitude};
 
-    // create map
+    // crear mapa
     this.map = new google.maps.Map(mapEle, {
       center: myLatLng,
       zoom: 12

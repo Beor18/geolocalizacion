@@ -52,7 +52,7 @@ export class HomePage {
       let marker = new google.maps.Marker({
         position: myLatLng,
         map: this.map,
-        title: 'Hello World!'
+        title: 'Hola Gil !'
       });
       mapEle.classList.add('show-map');
     });

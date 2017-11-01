@@ -30,8 +30,16 @@ export class HomePage {
   }
 
   loadMap(position: Geoposition){
+
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
+
+    let watch = this.geolocation.watchPosition();
+    watch.subscribe((data) => {
+      data.coords.latitude;
+      data.coords.longitude;
+    });
+
     console.log(latitude, longitude);
 
     let mapEle: HTMLElement = document.getElementById('id');

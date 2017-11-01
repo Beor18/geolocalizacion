@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { Geolocation, Geoposition } from "@ionic-native/geolocation";
 
 declare var google;
 
-@IonicPage()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -45,7 +44,7 @@ export class HomePage {
     });
 
     google.maps.event.addListenerOnce(this.map, 'idle', () => {
-      let marker = new google.maps.Marker({
+      new google.maps.Marker({
         position: myLatLng,
         map: this.map,
         title: 'Hola Gil'

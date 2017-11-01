@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import { Geolocation, Geoposition } from "@ionic-native/geolocation";
 
 declare var google;
 
+@IonicPage()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
